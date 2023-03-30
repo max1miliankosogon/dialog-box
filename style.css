@@ -1,0 +1,134 @@
+body {
+    background-color: chartreuse;
+    font-style: normal;
+    font-family: "Courier", sans-serif;
+    color: #4e3102;
+}
+
+form {
+background-color: rgb(181, 232, 157);
+    padding: 20px;
+    border-radius: 5px;
+}
+form.ng-valid {
+    background-color: blue;
+}
+#pol1 {
+    background-color: #92b0dd;
+    width: 400px
+}
+
+#pol2 {
+    background-color: #d1daba;
+    width: 400px
+}
+
+.alignen1 {
+    text-align-last: center;
+    color: #a16001;
+
+}
+
+#knopka {
+    height: 30px;
+    ;
+    background-color: rgba(51, 212, 250, 0.56);
+}
+
+li,
+ul {
+    text-align-last: left;
+}
+
+.alignen2 {
+    align-items: center;
+}
+
+.block1 {
+    font-size: 30px;
+    color: #a16001;
+    font-family: "Courier", monospace;
+    text-align-last: center;
+}
+
+.block2 {
+    font-size: 25px;
+    color: #4e3102;
+    font-family: serif;
+}
+
+.block3 {
+    font-size: 18px;
+    color: #4e3102;
+    font-family: cursive;
+}
+
+#wysota1Stroky {
+    height: 100px
+}
+
+table3 {
+    border: 2px;
+    width: 1200px;
+    align-content: center;
+    float: left;
+    margin: 10px;
+    border-spacing: 2px
+}
+
+p.dline {
+    line-height: 35;
+}
+table {
+    background-color: rgba(255, 234, 0, 0.99);
+    color: #0a0a0a
+      }
+
+input.ng-invalid {
+        background-color: rgb(239, 200, 207);
+      }
+input.ng-valid {
+        background-color: rgb(215, 237, 215);
+      }
+input.ng-pristine {
+        background-color: rgb(235, 227, 154);
+      }
+
+textarea.ng-valid {
+        font-size: 20px;
+        color: rgb(60, 41, 17);
+        background-color: rgb(163, 235, 163);
+        
+    }
+
+textarea.ng-invalid {
+        background-color: rgb(237, 233, 154);
+    }
+    
+
+    .floating-button {
+        text-decoration: none;
+        display: inline-block;
+        width: 200px;
+        height: 45px;
+        line-height: 45px;
+        border-radius: 10px;
+        margin: 10px 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 3px;
+        font-weight: 600;
+        color: #524f4e;
+        background: rgb(224, 232, 159);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+        transition: .3s;
+      }
+      .floating-button:hover {
+        background: #2EE59D;
+        box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+        color: white;
+        transform: translateY(-7px);
+      }
+      

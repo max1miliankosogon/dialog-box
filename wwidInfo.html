@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--DOCTYPE HTML-->
+<html>
+<!-- Завдання до лабораторної роботи
+1. З використанням контролера та директив ng-model розробити діалогову
+форму (лабораторна робота №2).
+2. Передбачити перевірку (валідацію) стану розробленої форми та всіх її
+елементів керування з використанням їх властивостей та СSS класів.-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="description" lang="en" content="Лабороаторна 14 варіант 3">
+    <meta name="author" content="Косогон Максим">
+    <meta name="keywords" content="Веб-технології та веб-дизайн,Лабораторні">
+    <meta name="robots" content="all">
+    <title>Kосогон М. веб сторінка</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet"> <!-- Підключаєм стилі з СSS-->
+    <link rel="stylesheet" href="angularjs-1.6.9-dist/css/w3.css">
+    <!--<link rel="stylesheet" href="myM.css" type="text/css"></link>-->
+    <script src="angularjs-1.6.9-dist/js/angular.min.js"></script>
+    <script src="myUsers.js"></script>
+
+    
+
+
+</head>
+<!--Програма AngularJS визначається як  ng-app="myApp" Програма працює всередині <body> -->
+<body ng-app="myApp">
+    
+
+        <h1 class="alignen1">Сайт Макса Косогона </h1>
+
+    <!--За допомогою директиви ng-controller="validateCtrl" визначаєм контролер -->
+    <!--модуль і контролер опишем в  myUsers.js -->
+    <form id="myForm" ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+        <fieldset id="pol1">
+            <p><label></label>Будь ласка надайте інформацію про себе<br>(Поля відмічені знаком *,обовязкові для заповнення)</p>
+            <p>* Імя та прізвище:
+                <!--За допомогою директиви ng-model="user" привязуєм змінну user до поля вводу-->
+                <!--і оголошуєм перевірку з допомогою атрибута required-->
+                <input type="text" name="user" ng-model="user" required>
+                <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid ">
+                <span ng-show="myForm.user.$error.required">введіть імя.</span>
+                <span ng-show="myForm.user.$error.user">Імя не введено.</span></span>
+               </label>  
+              </p>
+
+            <p><label>*Адрес ел. пошти:
+                <!--За допомогою директиви ng-model="email" привязуєм змінну email до поля вооду-->
+                <!--і оголошуєм перевірку з допомогою атрибута required-->   
+                <input type="email" name="email" ng-model="email" required>
+                    <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                    <span ng-show="myForm.email.$error.required">введіть email.</span>
+                    <span ng-show="myForm.email.$error.email">Не вірна email адреса.</span></span>
+                </label>    
+            </p>
+            <p><label>Телефон (мобільн.):
+                <!--За допомогою директиви ng-model="bell" привязуєм змінну bell до поля вооду-->
+                <!--і оголошуєм перевірку з допомогою атрибута required--> 
+                <input type="tel" name="bell" ng-model="bell" size="16" maxlength="13" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
+                <span style="color:rgb(251, 22, 22)" ng-show="myForm.bell.$dirty && myForm.bell.$invalid">
+                <span ng-show="myForm.bell.$valid">введіть телефон.</span></span>
+                </label> 
+            </p>
+            <p><label> Пароль: 
+            <!--За допомогою директиви ng-model="password" привязуєм змінну password до поля вводу-->
+            <!--і оголошуєм перевірку з допомогою атрибута required--> 
+            <input type="password" name="password" ng-model="password" size="10" maxlength="8" required pattern="\d{8,8}"></label></p>
+            <span style="color:rgb(251, 22, 22)" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+            <span ng-show="myForm.password.$error.required">введіть пароль.</span></span>
+        </fieldset>
+            
+        <fieldset id="pol2">
+            <legend> Відповідь краще надсилати у </legend>
+            <!--За допомогою директиви ng-model="myVar" привязуєм змінну myVar до радіокнопки-->
+            <p><input type="radio" ng-model="myVar" value="email"> Електронному листі</p>
+            <p></p><input type="radio" ng-model="myVar" value="sms"> Sms</p>
+                <div ng-switch="myVar">
+                    <div ng-switch-when="email">             <!--В залежності від положення радіокнопки-->
+                        <p><h3>Я надішлю електронного листа.</h3></p> <!--підсвітимо текст-->
+                    </div>
+                    <div ng-switch-when="sms">
+                        <p><h3>Я відправлю Вам Sms.</h3></p>          <!--підсвітимо текст-->
+                    </div>
+        </fieldset>
+            
+        <!--За допомогою директиви ng-model="myText" привязуєм змінну myText до поля вводу-->
+        <!--і оголошуєм перевірку з допомогою атрибута required-->
+        <p><textarea  ng-model="myText" name="text" cols="42" rows="6" placeholder="Будь ласка впишіть сюди ваше запитання" required></textarea></p>
+            
+        <!-- Підключаєм функцію очищення полів вводу у формі при натисканні на кнопку-->
+        <p ><input  type="button"  class="floating-button" value="Очистити дані" onclick="myFunctionReset()" >
+                
+        <p>
+        <!-- Підключаєм кнопку відправки форми на сервер при натисканні -->
+        <input type="submit" class="floating-button"
+        ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||  
+        myForm.email.$dirty && myForm.email.$invalid">
+        </p>   
+    </form>
+        
+<script src= "myUsers.js"></script>
+</body>
+
+</html>
